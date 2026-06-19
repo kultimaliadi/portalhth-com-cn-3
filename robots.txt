@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kultimaliadi.github.io/portalhth-com-cn-3/sitemap.xml

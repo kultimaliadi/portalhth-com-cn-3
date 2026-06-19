@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 主题与叙事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(145deg, #fdf3e3 0%, #fae8d8 45%, #f5dcc8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            color: #3d2b1f;
+            line-height: 1.7;
+        }
+
+        .page-wrapper {
+            max-width: 780px;
+            width: 100%;
+        }
+
+        .content-card {
+            background: #fffcf8;
+            border-radius: 28px;
+            padding: 2.8rem 2.6rem;
+            box-shadow: 0 12px 30px rgba(150, 100, 60, 0.12), 0 4px 8px rgba(180, 130, 80, 0.06);
+            backdrop-filter: blur(2px);
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .content-card {
+                padding: 2rem 1.4rem;
+                border-radius: 22px;
+            }
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+
+        /* 文章标题 */
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #4d2f1c;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+            border-left: 5px solid #d9a77b;
+            padding-left: 1.2rem;
+        }
+
+        .article-sub {
+            font-size: 0.95rem;
+            color: #8c6f57;
+            margin-bottom: 2rem;
+            padding-left: 1.8rem;
+            font-weight: 350;
+            border-bottom: 1px dashed #e5d3c2;
+            padding-bottom: 0.8rem;
+        }
+
+        .lead {
+            font-size: 1.12rem;
+            font-weight: 380;
+            color: #503b2b;
+            background: #faf0e8;
+            padding: 1.2rem 1.6rem;
+            border-radius: 18px;
+            margin: 1.8rem 0 2rem 0;
+            box-shadow: inset 0 2px 6px rgba(210, 160, 110, 0.08);
+        }
+
+        .body-text {
+            margin-bottom: 1.6rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .body-text strong {
+            color: #7a4f32;
+            font-weight: 550;
+        }
+
+        .quote-block {
+            background: #f7ede3;
+            border-left: 6px solid #cfaa88;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 0 18px 18px 0;
+            font-style: normal;
+            color: #4a372a;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(160, 110, 70, 0.05);
+        }
+
+        .quote-block p {
+            margin-bottom: 0.3rem;
+        }
+
+        .quote-block .quote-source {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #826a55;
+            letter-spacing: 0.5px;
+        }
+
+        .inline-link {
+            color: #9f6f48;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #e6ccb8;
+            transition: border-color 0.2s, color 0.2s;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #b88357;
+            color: #6f4429;
+            background: #fbf1e7;
+        }
+
+        .cta-line {
+            margin: 2.4rem 0 1.2rem 0;
+            background: #fdf6f0;
+            border-radius: 24px;
+            padding: 1.2rem 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 0.8rem;
+            border: 1px solid #eddccd;
+            font-size: 1.05rem;
+        }
+
+        .cta-line .visit-label {
+            color: #5e4231;
+        }
+
+        .cta-line .platform-link {
+            display: inline-block;
+            background: #dbb79b;
+            color: #2d1f15;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 570;
+            font-size: 0.95rem;
+            letter-spacing: 0.4px;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            box-shadow: 0 2px 6px rgba(160, 100, 50, 0.15);
+        }
+
+        .cta-line .platform-link:hover {
+            background: #c9a281;
+            transform: scale(1.01);
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e7d5c5;
+        }
+
+        .faq-item {
+            margin-bottom: 1.6rem;
+        }
+
+        .faq-item .faq-q {
+            font-weight: 550;
+            color: #503829;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .faq-item .faq-q::before {
+            content: "▹";
+            color: #b58b6c;
+            font-size: 1.1rem;
+        }
+
+        .faq-item .faq-a {
+            color: #4d3b2e;
+            padding-left: 1.5rem;
+            font-size: 0.96rem;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #846e5b;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .footer-note span {
+            background: #f1e4d8;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="content-card">
+
+            <h1 class="article-title">日常中的在场感</h1>
+            <div class="article-sub">从一次安静的重读开始</div>
+
+            <div class="lead">
+                有时候，我们需要一处不喧哗的角落，重新打量那些陪伴已久的名字。<br>
+                「华体会」三个字背后，藏着不止一种打开方式。
+            </div>
+
+            <p class="body-text">
+                今年秋天，我习惯在午后翻几页旧书，同时让浏览器标签页保持打开。有一个页面始终在那里，不是因为它必须被频繁操作，而是因为它像一块稳定的锚点——<strong>华体会</strong>。这个词本身没有夸张的修饰，却逐渐在日复一日的浏览里，变成一种熟悉的坐标。
+            </p>
+
+            <p class="body-text">
+                我渐渐注意到，许多人在不同的语境里提起它：有人用它来标记某个阶段的兴趣，有人在笔记里把它归类为“长期关注的领域”。它不是一个需要被反复解释的概念，更像一个容器，容纳了各自的理解与使用习惯。这种克制而持久的关联，反而比任何高亮宣传都更耐读。
+            </p>
+
+            <div class="quote-block">
+                <p>“一个名字被反复提起，不是因为它的声调特别，而是因为人们愿意在它旁边停留。”</p>
+                <span class="quote-source">—— 摘自阅读笔记，2024 · 秋</span>
+            </div>
+
+            <p class="body-text">
+                在使用与观察之间，我慢慢形成自己的节奏：每周固定时间刷新页面，看看有没有新的内容线索，或者只是让界面保持在那里，作为一种氛围。它不需要我时刻注意，却总在需要的时候提供一条清晰的路径。这种关系，像一本随时可以翻到的书。
+            </p>
+
+            <p class="body-text">
+                最近和朋友聊起数字空间的“根据地”，我们都不约而同地提到了几个长期保留的站点。其中就有<a href="https://portalhth.com.cn" class="inline-link">华体会</a>。我们讨论的不是功能列表，而是那种“去了就知道自己在哪”的踏实感。它不制造焦虑，也不催促行动，只是安静地待在那里，等你自己决定停留多久。
+            </p>
+
+            <div class="cta-line">
+                <span class="visit-label">如果你也好奇这种持续的在场感，可以顺路探访</span>
+                <a href="https://portalhth.com.cn" class="platform-link">华体会</a>
+                <span style="color: #6f5542; font-size: 0.9rem;">—— 不预设期待，或许更适合相遇。</span>
+            </div>
+
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <div class="faq-q">这个站点的内容更偏向什么方向？</div>
+                    <div class="faq-a">整体围绕主题性的信息组织，没有固定分类标签，但呈现出一种安静的叙述气质。适合随意浏览与定向查阅交替使用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">需要注册或登录才能使用吗？</div>
+                    <div class="faq-a">不需要。页面本身是开放的，访客可以直接阅读和探索。保持低门槛的进入方式，也是它让人放松的原因之一。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">为什么推荐它而不是其他类似的站点？</div>
+                    <div class="faq-a">不是推荐，只是分享一种个人选择。它的界面和内容节奏恰好符合我的习惯，如果你也喜欢不被打扰的浏览体验，或许会有同感。</div>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <span>写于一次安静的午后 · 无广告 · 无追踪</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
