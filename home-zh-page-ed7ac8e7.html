@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育 · 简明导航指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f6fafc;
+            color: #1a2e3a;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---- 顶部导航 ---- */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0 14px;
+            border-bottom: 1px solid #d4e6ed;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #0f5a6b;
+            letter-spacing: 0.5px;
+        }
+
+        .brand span {
+            color: #48a1b8;
+            margin-right: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #296b7c;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f3b47;
+            text-decoration: underline;
+        }
+
+        /* ---- hero 区 ---- */
+        .hero {
+            padding: 50px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #124753;
+            letter-spacing: 1px;
+        }
+
+        .hero .tagline {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            color: #3c6e7c;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .tagline a {
+            color: #0b798e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .hero .tagline a:hover {
+            color: #064c5a;
+        }
+
+        /* ---- 简明指南区块 ---- */
+        .intro-guide {
+            background: #e4f1f5;
+            border-radius: 24px;
+            padding: 32px 28px;
+            margin: 18px 0 34px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px 30px;
+        }
+
+        .guide-card {
+            flex: 1 1 180px;
+            background: white;
+            border-radius: 18px;
+            padding: 20px 16px;
+            box-shadow: 0 4px 8px rgba(5, 80, 100, 0.06);
+            border-left: 5px solid #58b3c9;
+        }
+
+        .guide-card h3 {
+            font-size: 1.1rem;
+            color: #115160;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .guide-card p {
+            font-size: 0.92rem;
+            color: #2e5c68;
+        }
+
+        /* ---- 场景网格卡片 ---- */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #124753;
+            margin: 48px 0 20px;
+            border-left: 6px solid #48a1b8;
+            padding-left: 18px;
+        }
+
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 22px;
+            padding: 28px 20px 24px;
+            box-shadow: 0 6px 14px rgba(8, 88, 108, 0.06);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid #d2e7f0;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 24px rgba(8, 88, 108, 0.1);
+            border-color: #8cc6d9;
+        }
+
+        .scene-card .emoji-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .scene-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #085467;
+            font-weight: 600;
+        }
+
+        .scene-card p {
+            color: #2b5b68;
+            font-size: 0.95rem;
+        }
+
+        /* ---- 常见说明 / FAQ ---- */
+        .faq-area {
+            background: #eef6f9;
+            border-radius: 28px;
+            padding: 30px 26px 26px;
+            margin: 30px 0 40px;
+        }
+
+        .faq-area h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #0d4d5c;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border-bottom: 1px dashed #b8d6e0;
+            padding-bottom: 12px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #175c6d;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: #2e5b66;
+            font-size: 0.93rem;
+            padding-left: 8px;
+        }
+
+        .faq-answer a {
+            color: #0a7f95;
+            text-decoration: underline;
+        }
+
+        .faq-answer a:hover {
+            color: #064b59;
+        }
+
+        /* ---- 底部 ---- */
+        .footer {
+            text-align: center;
+            padding: 28px 0 40px;
+            border-top: 1px solid #d3e3ea;
+            margin-top: 20px;
+            color: #3b6c79;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #0b6d81;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- 移动端微调 ---- */
+        @media (max-width: 640px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .intro-guide {
+                flex-direction: column;
+                padding: 24px 18px;
+            }
+
+            .scenes-grid {
+                gap: 16px;
+            }
+
+            .faq-area {
+                padding: 20px 18px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <!-- 顶部导航 -->
+        <header class="navbar">
+            <div class="brand"><span>◈</span> 爱·运动</div>
+            <div class="nav-links">
+                <a href="#guide">简明指南</a>
+                <a href="#scenes">场景</a>
+                <a href="#faq">常见说明</a>
+            </div>
+        </header>
+
+        <!-- hero -->
+        <section class="hero">
+            <h1>爱游戏体育 · 轻量导航</h1>
+            <div class="tagline">
+                一份简洁的访问指引，帮助你更从容地了解 
+                <a href="https://home-zh-aiyouxi.com">爱游戏体育</a> 
+                的平台特色与内容方向。少一些冗余，多一些清晰。
+            </div>
+        </section>
+
+        <!-- 简明指南 -->
+        <div class="intro-guide" id="guide">
+            <div class="guide-card">
+                <h3>📌 快速定位</h3>
+                <p>在首页即可找到赛事资讯、运动社区与互动板块，无需层层跳转。</p>
+            </div>
+            <div class="guide-card">
+                <h3>🧭 内容分类</h3>
+                <p>体育项目、赛事集锦、玩家讨论均有独立分区，方便按兴趣浏览。</p>
+            </div>
+            <div class="guide-card">
+                <h3>📱 移动适配</h3>
+                <p>页面针对手机与平板做了响应式优化，随时随手都能顺畅阅读。</p>
+            </div>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <h2 class="section-title" id="scenes">日常使用场景</h2>
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <span class="emoji-icon">🏀</span>
+                <h4>赛前热身</h4>
+                <p>浏览最新体育资讯与赛程，提前了解球队动态、选手状态，做足功课再和朋友聊球。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-icon">⚽</span>
+                <h4>赛后复盘</h4>
+                <p>查找精彩片段、战术分析以及社区热评，把比赛看得更透彻，也能参与讨论。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-icon">🏸</span>
+                <h4>兴趣拓展</h4>
+                <p>从主流运动到小众项目，发现新的体育爱好，关注相关圈子并获取入门信息。</p>
+            </div>
+        </div>
+
+        <!-- 常见说明 / FAQ摘要 -->
+        <div class="faq-area" id="faq">
+            <h2>常见说明 · 摘录</h2>
+            <div class="faq-item">
+                <span class="faq-question">Q: 是否需要注册才能浏览大部分内容？</span>
+                <div class="faq-answer">普通浏览模式下，多数资讯和赛事信息可以直接阅读。某些互动功能可能会提示登录，但浏览首页和基本内容并不强制注册。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Q: 如何找到特定体育项目的版块？</span>
+                <div class="faq-answer">你可以在 <a href="https://home-zh-aiyouxi.com">爱游戏体育</a> 的导航栏或分类入口中按项目查找，也支持关键词搜索。页面结构每年会做优化，建议留意首页导航更新。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Q: 页面加载较慢或部分图片不显示怎么办？</span>
+                <div class="faq-answer">可以尝试刷新页面或切换网络环境。如果持续遇到问题，可以检查浏览器版本或清理缓存。平台也在持续优化资源加载。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-question">Q: 是否有移动端应用？</span>
+                <div class="faq-answer">目前主要通过浏览器访问，移动端网页已做适配。官方应用的消息请以首页公告为准，不要轻信第三方下载链接。</div>
+            </div>
+            <p style="margin-top: 14px; font-size:0.93rem; color:#2d6a7a;">更多详情与最新调整，请直接浏览 <a href="https://home-zh-aiyouxi.com">爱游戏体育</a> 首页。</p>
+        </div>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>保持探索，理性观赛 · 内容来源：<a href="https://home-zh-aiyouxi.com">爱游戏体育</a></p>
+            <p style="margin-top:8px; color:#4d7b88;">信息仅供参考，平台规则以实际页面为准。</p>
+        </footer>
+    </div>
+</body>
+</html>
